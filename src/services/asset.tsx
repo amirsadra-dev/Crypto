@@ -1,33 +1,35 @@
 import axios from "axios";
+import ShowCoins from "../ShowCoins";
 import { useState, useEffect } from "react";
+import { useFetchSocket } from "../hook/fetchSocket";
+
+export interface ICrypto {
+  id: string;
+  rank: number;
+  name: string;
+  priceUsd: number;
+  supply: number;
+  symbol: string;
+  volumeUsd24Hr: number;
+  vwap24Hr: number;
+  Desk : string;
+  changePercent24Hr : number;
+  marketCapUsd : number
+}
 
 export default function Asset() {
-  const [crypto, setCrypto] = useState([]);
+  const crypto = useState<ICrypto[]>([]);
 
   useEffect(() => {
     axios.get("https://api.coincap.io/v2/assets").then((res) => {
-      setCrypto(res.data.data);
-      console.log("Response:", res.data);
+      crypto[1](res.data.data);
     });
   }, []);
+  useFetchSocket(crypto);
 
   return (
     <>
-      {crypto.map((item) => (
-        <div key={item.id}>
-          <div>
-            {item.rank}
-            {item.name}
-          </div>
-          <div>
-            {item.marketCapUsd}
-            {item.vwap24Hr}
-            {item.supply}
-            {item.volumeUsd24Hr}
-            {item.changePercent24Hr}
-          </div>
-        </div>
-      ))}
+      <ShowCoins crypto={crypto} />
     </>
   );
 }
