@@ -1,4 +1,4 @@
-#The Project Of Showing The Price Of Cryptocurrencies In Real Time
+#   The Project Of Showing The Price Of Cryptocurrencies In Real Time
 
 ### This Project Was Created With : Reactjs + TypeScript + TailwndCss + Vite
 
