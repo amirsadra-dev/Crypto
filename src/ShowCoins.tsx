@@ -37,19 +37,19 @@ const ShowCoins: FC<IProps> = ({ crypto }) => {
 
   return (
     <>
-      <div dir="rtl" className="font-DanaMedium bg-[#0F1C2E] text-[#C6DEF8]">
+      <div dir="ltr" className="font-DanaMedium bg-[#0F1C2E] text-[#C6DEF8]">
         <div className="flex w-full items-center justify-between py-8	px-7 bg-[#0D1726] border-b border-white/60 rounded-sm">
-          <div className="flex pr-10 gap-x-8 ">
-            <span>رتبه</span>
-            <span>نام</span>
+          <div className="flex pl-10 gap-x-8 ">
+            <span>Rank</span>
+            <span>Name</span>
           </div>
           <div className="flex gap-x-16 justify-between font-DanaMedium">
-            <div className="w-28">قیمت</div>
-            <div className="w-24">ارزش بازار</div>
-            <div className="w-48">حجم معاملات (24 ساعته)</div>
-            <div className="w-24">عرضه</div>
-            <div className="w-28">حجم (24 ساعت)</div>
-            <div className="">تغییرات (24 ساعته)</div>
+            <div className="w-28">Price</div>
+            <div className="w-24">Market Cap</div>
+            <div className="w-48">VWAP (24Hr)	</div>
+            <div className="w-24">Supply</div>
+            <div className="w-28">Volume (24Hr)</div>
+            <div className="">Change (24Hr)</div>
           </div>
         </div>
         {!cryptoState.length

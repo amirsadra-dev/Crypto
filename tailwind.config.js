@@ -9,9 +9,7 @@ export default {
       fontFamily: {
         DanaRegular: "Dana Regular",
         DanaMedium: "Dana Medium",
-        
-        
-      },
+        },
     },
   },
   plugins: [],
