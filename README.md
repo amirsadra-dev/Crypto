@@ -9,4 +9,4 @@
 ### `yarn run dev`
 
 ## Resources
-[https://coincap.io/]
+https://coincap.io/
