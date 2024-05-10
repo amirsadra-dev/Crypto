@@ -1,4 +1,4 @@
-#The project of showing the price of cryptocurrencies in real time
+#The Project Of Showing The Price Of Cryptocurrencies In Real Time
 
 ### This Project Was Created With : Reactjs + TypeScript + TailwndCss + Vite
 
@@ -7,3 +7,6 @@
  In the project directory, you can run:
 
 ### `yarn run dev`
+
+## Resources
+[https://coincap.io/]
