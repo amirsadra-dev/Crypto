@@ -29,7 +29,7 @@ const ShowCoins: FC<IProps> = ({ crypto }) => {
             "bg-red-200/30",
             "bg-[#0F1C2E]"
           );
-        }, 800);
+        }, 2000);
       }
     });
   }, [cryptoState]);

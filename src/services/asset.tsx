@@ -2,6 +2,7 @@ import axios from "axios";
 import ShowCoins from "../ShowCoins";
 import { useState, useEffect } from "react";
 import { useFetchSocket } from "../hook/fetchSocket";
+import { useUpdateCoin } from "../hook/updateCoin";
 
 export interface ICrypto {
   id: string;
@@ -25,7 +26,7 @@ export default function Asset() {
       crypto[1](res.data.data);
     });
   }, []);
-  useFetchSocket(crypto);
+  useUpdateCoin(crypto);
 
   return (
     <>

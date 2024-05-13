@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { ICrypto } from "../services/asset";
-export const useFetchSocket = (cryptoNames: [ICrypto[], React.Dispatch<React.SetStateAction<ICrypto[]>>]) => {
+
+export const useFetchSocket = () => {
   const [serverResponse, setServerResponse] = useState([]);
-  const [crypto, setCrypto] = cryptoNames;
+  
   console.log(crypto);
 
   useEffect(() => {
@@ -17,32 +17,7 @@ export const useFetchSocket = (cryptoNames: [ICrypto[], React.Dispatch<React.Set
       const responseSocket = JSON.parse(event.data);
       setServerResponse(responseSocket);
 
-      crypto.map((item) => {
-        if (item.Desk) {
-          item.Desk = "";
-        }
-        const result = Object.keys(responseSocket).find(
-          (key) => key === item.id
-        );
-        if (result) {
-          setCrypto((pre) => {
-            const preState = [...pre];
-
-            const selectedItem = preState.find((res) => res.id === result);
-
-            if (selectedItem) {
-              if (selectedItem.priceUsd > responseSocket[result]) {
-                selectedItem.Desk = "red";
-              } else if (selectedItem.priceUsd < responseSocket[result])
-                selectedItem.Desk = "green";
-
-              selectedItem.priceUsd = responseSocket[result];
-            }
-
-            return preState;
-          });
-        }
-      });
+      
     };
 
     socket.onclose = function () {
@@ -57,7 +32,7 @@ export const useFetchSocket = (cryptoNames: [ICrypto[], React.Dispatch<React.Set
     return () => {
       socket.close();
     };
-  }, [serverResponse]);
+  }, []);
 
-  return {};
+  return {serverResponse};
 };
